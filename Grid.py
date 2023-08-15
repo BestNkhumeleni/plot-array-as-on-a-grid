@@ -23,7 +23,7 @@ class GridApp:
                 label = tk.Label(cell_frame, text="", width=6, height=2)
                 label.pack(fill=tk.BOTH, expand=True)
 
-                cell_frame.config(bg="blue")
+                cell_frame.config(bg="purple")
 
                 self.cells[i][j] = label
 
@@ -35,8 +35,7 @@ class GridApp:
         point_label.config(text="((;))", font=("Helvetica", 14))
 
     def remove_point(self, row, col):
-        point_label = self.cells[row][col]
-        point_label.config(text="")
+        self.create_grid()
 
 
 if __name__ == "__main__":
@@ -47,8 +46,8 @@ if __name__ == "__main__":
     num_cols = 10  # Adjust the number of columns
 
     app = GridApp(root, num_rows, num_cols)
-    row = int(input("Which row do you wanna place a point : "))
-    col = int(input("Which collumn do you wanna place a point: "))
+    row = eval(input("Which row do you wanna place a point : "))
+    col = eval(input("Which collumn do you wanna place a point: "))
 
     app.place_point(row, col)
 
