@@ -15,8 +15,12 @@ class GridApp:
         
         for i in range(self.rows):
             for j in range(self.cols):
-                label = tk.Label(self.root, text="", width=6, height=2, relief=tk.RIDGE)
-                label.grid(row=i, column=j)
+                cell_frame = tk.Frame(self.root, width=50, height=30, highlightthickness=1, highlightbackground="black")
+                cell_frame.grid(row=i, column=j)
+                
+                label = tk.Label(cell_frame, text="", width=6, height=2)
+                label.pack(fill=tk.BOTH, expand=True)
+                
                 self.cells[i][j] = label
                 
     def place_point(self):
@@ -30,8 +34,8 @@ if __name__ == "__main__":
     root = tk.Tk()
     root.title("Grid GUI with Point")
     
-    num_rows = 3
-    num_cols = 3
+    num_rows = 10  # Adjust the number of rows
+    num_cols = 10  # Adjust the number of columns
     
     app = GridApp(root, num_rows, num_cols)
     
